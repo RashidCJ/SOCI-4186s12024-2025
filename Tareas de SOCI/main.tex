@@ -1,0 +1,159 @@
+\documentclass[11pt]{article} %tamño de letra, tipo de artículo
+\usepackage{setspace}    % Permite ajustar el espaciado entre líneas (simple, 1.5, doble).
+\usepackage{graphicx}    % Facilita la inclusión y manipulación de imágenes en el documento.
+%\usepackage{geometry}    
+\usepackage{amssymb}     % Proporciona símbolos matemáticos adicionales.
+\usepackage{amsmath}     % Mejora el entorno matemático de LaTeX para expresiones complejas.
+\usepackage{natbib}      % Gestiona citas y referencias bibliográficas con estilos variados.
+\usepackage{array}       % Amplía las capacidades de formateo de tablas en el entorno array.
+\usepackage{multirow}    % Permite crear celdas que abarquen varias filas en tablas.
+\usepackage{siunitx}     % (Reemplaza a dcolumn) Alinea columnas numéricas y maneja unidades de manera avanzada.
+\usepackage{textcomp}    % Proporciona símbolos adicionales como el símbolo del grado, número y el euro.
+\usepackage[utf8]{inputenc}  % Configura la codificación del documento para usar UTF-8.
+\usepackage[T1]{fontenc}     % Configura la salida del documento con codificación T1, adecuada para caracteres en español.
+\usepackage[spanish]{babel}  % Configura el documento para usar el idioma español, ajustando reglas tipográficas y de separación de sílabas.
+\usepackage{csquotes}        % Proporciona comillas tipográficas adecuadas para el español.
+\usepackage[top=1in,right=1in,left=1in,bottom=1in]{geometry} % Ajusta los márgenes y la disposición de la página. Este indica que el margen es de una pulgada a cada lado.
+
+\bibpunct{(}{)}{;}{a}{}{,}
+\parindent 1.5em %\raggedright
+\usepackage{natbib}          % Gestiona citas y referencias bibliográficas con estilos variados.
+\usepackage{hyperref}        % Convierte referencias cruzadas y URLs en hipervínculos dentro del PDF.
+
+\hypersetup{
+    bookmarks=false,         % No mostrar la barra de marcadores.
+    unicode=true,            % Permitir caracteres no latinos en los marcadores.
+    pdftoolbar=true,         % Mostrar la barra de herramientas de Acrobat.
+    pdfmenubar=true,         % Mostrar el menú de Acrobat.
+    pdffitwindow=false,      % Ajustar la ventana a la página al abrir.
+    pdfstartview={FitH},     % Ajusta el ancho de la página a la ventana.
+    pdftitle={},             % Título del documento.
+    pdfauthor={},            % Autor del documento.
+    pdfsubject={},           % Asunto del documento.
+    pdfcreator={},           % Creador del documento.
+    pdfproducer={},          % Productor del documento.
+    pdfkeywords={},          % Lista de palabras clave.
+    pdfnewwindow=true,       % Abrir enlaces en una nueva ventana.
+    colorlinks=true,         % Enlaces en color (sin recuadro).
+    linkcolor=blue,          % Color de los enlaces internos.
+    citecolor=blue,          % Color de los enlaces a la bibliografía.
+    filecolor=blue,          % Color de los enlaces a archivos.
+    urlcolor=blue            % Color de los enlaces externos.
+}
+\title{SOCI 4186\\ Asignación \textnumero 1}
+% the double slash makes a new line; the slash before the pound sign
+% tells TeX that you're inserting a special character.
+\author{Pon tu nombre aquí}
+
+\date{\today}
+%This will auto-populate with today's date.
+
+\begin{document}
+
+\maketitle
+
+%\section*{Introducción} %nota que no hay 
+%Recall, if you want to number your sections/subsections, you can remove the asterisk(s).
+\section*{Usando ecuaciones}
+
+Aquí está mi respuesta al problema 1; cada vez que trato de escribir matemáticas, recuerdo ponerlas entre signos de dólar, como esto: $\sqrt{4} = \pm 2$. Es tan bonito que a veces no puedo ni siquiera soportar mirarlo.
+
+Sé que si pongo un salto de línea entre párrafos, estos se sangrarán automáticamente, lo cual es agradable. Si por alguna razón quisiera poner varias líneas de matemáticas seguidas, podría usar un array de ecuaciones, lo cual es conveniente porque las líneas se alinean automáticamente según el carácter que aparece entre los ampersands (\&).
+
+En la mecánica ondulatoria no relativista, la función de onda
+$\psi(\mathbf{r},t)$ de una partícula satisface la
+\emph{Ecuación de Onda de Schr\"{o}dinger}
+\[ i\hbar\frac{\partial \psi}{\partial t}
+  = \frac{-\hbar^2}{2m} \left(
+    \frac{\partial^2}{\partial x^2}
+    + \frac{\partial^2}{\partial y^2}
+    + \frac{\partial^2}{\partial z^2}
+  \right) \psi + V \psi.\] 
+Es habitual normalizar la ecuación de onda exigiendo que
+\[ \int \!\!\! \int \!\!\! \int_{\textbf{R}^3}
+      \left| \psi(\mathbf{r},0) \right|^2\,dx\,dy\,dz = 1.\] 
+Un cálculo simple usando la ecuación de onda de Schr\"{o}dinger muestra que
+\[ \frac{d}{dt} \int \!\!\! \int \!\!\! \int_{\textbf{R}^3}
+      \left| \psi(\mathbf{r},t) \right|^2\,dx\,dy\,dz = 0,\] 
+y por lo tanto
+\[ \int \!\!\! \int \!\!\! \int_{\textbf{R}^3}
+      \left| \psi(\mathbf{r},t) \right|^2\,dx\,dy\,dz = 1\] 
+para todos los tiempos~$t$. Si normalizamos la función de onda de esta
+manera, entonces, para cualquier subconjunto (medible)~$V$ de $\textbf{R}^3$
+y tiempo~$t$,
+\[ \int \!\!\! \int \!\!\! \int_V
+      \left| \psi(\mathbf{r},t) \right|^2\,dx\,dy\,dz\] 
+representa la probabilidad de que la partícula se encuentre
+dentro de la región~$V$ en el tiempo~$t$.
+
+\begin{align*}
+x + 5 &= 12 \\      % La \\ significa que puedes ir a la próxima línea
+x &= 12 - 5 \\      % Cada línea está alineada con el signo de igualdad
+x &= 7              % La última línea no necesita \\ si es la final
+\end{align*}        % Utiliza align* para evitar numeración si no es necesario
+
+Como se puede ver de las ecuaciones arriba...
+
+\section*{Usando tablas}
+
+He aquí una tabla general, con líneas en márgenes e interiores.
+
+\begin{table}[h!]
+\centering
+\caption{Tabla interesante}
+\label{}
+\begin{tabular}{|r|c|c|}
+\hline 
+Edad & x & y \\ 
+\hline 
+Religión & z & \~{n} \\ 
+\hline 
+Idioma & ll & m \\ 
+\hline 
+Cosas & • & • \\ 
+\hline 
+Otras cosas & • & • \\ 
+\hline 
+\end{tabular} 
+\end{table}
+
+He aquí otra tabla, donde digo algo sobre unas películas.
+\begin{table}[h!]
+\centering %moves table to the middle of the page
+\begin{tabular}{cc}
+% cc means two centered columns;
+% c=center, l=left, r=right.
+% c|c would be two centered columns with a vertical
+% line dividing them, |c|c| would give you a fully boxed table; 
+Película & Reseña\\
+\hline %Adds a horizontal line
+\emph{Titanic} & Tiró el diamante al océano tras 80+ años.\\
+\emph{Lo que el viento se llevó} & Larga, buena música, larga.\\
+\emph{Cloud Atlas} & Interesante, ambiciosa. \\
+\hline
+\end{tabular}
+\end{table}
+continúa en la siguiente página...
+\newpage %para romper e ir a una nueva página
+\section*{Usando imágenes}
+
+%\subsection*{Problem 3}
+
+Finalmente, digamos que para una tarea necesito poner o insertar una imagen a un documento. Pues debe estar guardado en el mismo directorio donde esté el documento .tex. 
+
+\begin{figure}[h!]
+  \begin{center}
+  \caption{Reducción del porciento de familias en pobreza en Puerto Rico durante los 2010s}
+    \includegraphics[width=1\textwidth]{Mapa_Pobreza_delta.png}
+Aquí puedes poner información adicional..
+\end{center}
+\end{figure}
+
+Y aquí está un comentario adicional posterior, indicando alguna opinión al respecto de la información provista y como choca o va con la realidad.
+
+\end{document}
+
+
+
+
+
