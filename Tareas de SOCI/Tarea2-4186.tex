@@ -1,0 +1,126 @@
+\documentclass[11pt]{article} %tamño de letra, tipo de artículo
+\usepackage{fontspec}
+% Configuración de la fuente Times New Roman
+\setmainfont{Times New Roman}
+\usepackage{setspace}    % Permite ajustar el espaciado entre líneas (simple, 1.5, doble).
+\onehalfspacing
+\usepackage{graphicx}    % Facilita la inclusión y manipulación de imágenes en el documento.
+%\usepackage{geometry}    
+\usepackage{amsmath}     % Mejora el entorno matemático de LaTeX para expresiones complejas.
+\usepackage{natbib}      % Gestiona citas y referencias bibliográficas con estilos variados.
+\usepackage{array}       % Amplía las capacidades de formateo de tablas en el entorno array.
+\usepackage{multirow}    % Permite crear celdas que abarquen varias filas en tablas.
+\usepackage{siunitx}     % (Reemplaza a dcolumn) Alinea columnas numéricas y maneja unidades de manera avanzada.
+\usepackage{textcomp}    % Proporciona símbolos adicionales como el símbolo del grado, número y el euro.
+\usepackage[utf8]{inputenc}  % Configura la codificación del documento para usar UTF-8.
+%\usepackage[T1]{fontenc}     % Configura la salida del documento con codificación T1, adecuada para caracteres en español.
+\usepackage[spanish,es-tabla]{babel}  % Configura el documento para usar el idioma español, ajustando reglas tipográficas y de separación de sílabas. le dice adicionalmente que las tablas se llaman tablas, no cuadros.
+\usepackage{csquotes}        % Proporciona comillas tipográficas adecuadas para el español.
+\usepackage[top=1in,right=1in,left=1in,bottom=1in]{geometry} % Ajusta los márgenes y la disposición de la página. Este indica que el margen es de una pulgada a cada lado.
+\usepackage{makecell} % Para el comando \makecell
+
+\bibpunct{(}{)}{;}{a}{}{,}
+\parindent 1.5em %\raggedright
+
+\usepackage{hyperref}        % Convierte referencias cruzadas y URLs en hipervínculos dentro del PDF.
+
+\hypersetup{
+    unicode=true,            % Permitir caracteres no latinos en los marcadores.
+    pdftoolbar=true,         % Mostrar la barra de herramientas de Acrobat.
+    pdfmenubar=true,         % Mostrar el menú de Acrobat.
+    pdffitwindow=false,      % Ajustar la ventana a la página al abrir.
+    pdfstartview={FitH},     % Ajusta el ancho de la página a la ventana.
+    pdftitle={},             % Título del documento.
+    pdfauthor={},            % Autor del documento.
+    pdfsubject={},           % Asunto del documento.
+    pdfcreator={},           % Creador del documento.
+    pdfproducer={},          % Productor del documento.
+    pdfkeywords={},          % Lista de palabras clave.
+    pdfnewwindow=true,       % Abrir enlaces en una nueva ventana.
+    colorlinks=true,         % Enlaces en color (sin recuadro).
+    linkcolor=blue,          % Color de los enlaces internos.
+    citecolor=blue,          % Color de los enlaces a la bibliografía.
+    filecolor=blue,          % Color de los enlaces a archivos.
+    urlcolor=blue            % Color de los enlaces externos.
+}
+\title{SOCI 4186-00N\\ Tarea \textnumero 2 - Ejercicio de educaci\'on c\'ivica electoral}
+
+\author{Pon tu nombre aquí}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\begin{center}
+A entregarse el viernes 6 de septiembre de 2024. 
+\end{center}
+
+Esta es la tarea para ustedes: 
+\begin{enumerate}
+    \item Descargarán este documento en el GitHub de la clase, y lo subirán a la misma carpeta que abrieron cuando hicieron cuenta conmigo en Overleaf el lunes (probablemente llamada Proyecto).
+    \item Cambiarán el nombre que sale arriba (al final del preámbulo, poco antes del \texttt{\textbackslash begin\{document\}}, donde dice \texttt{\textbackslash author\{Pon tu nombre aquí\}} y pondrán en su lugar su nombre(s) y apellidos.
+    \item Prestarán atención a la ortografía de la lengua española, asegurándose de colocar acentos, diéresis, o tildes donde deban ir. Para esto, tienen dos opciones 
+    \begin{enumerate}
+        \item si su teclado estuviera en español, usen los símbolos donde es menester,
+        \item si su teclado no estuviera en español, está la opción indicada en clase de usar \texttt{\textbackslash} y el símbolo necesario (por ejemplo, ' para acento (\'a o \'{a}), "\ para diéresis (\"u o \"{u}), \~\ para \~n)
+        \item Alternativamente, si prefiriera escribir en inglés \underline{la tarea entera}, podrá hacerlo, ciñéndose estrictamente a una de las tres ortografías principales de ese idioma, es decir, inglés británico, inglés Oxford, o inglés estadounidense.
+    \end{enumerate}
+    \item Completarán como mejor sea posible la tarea, y podrán, si entienden necesario hacerlo, trabajar la tarea con compañeres de clase. Si así lo hicieren, pondrán antes de la sección 1 una oración indicándome con quién(es) trabajó la tarea. De lo contrario, dejarán la línea que está actualmente escrita.
+    \item  Una vez terminen, apretarán el símbolo de descarga (a la derecha del botón de Compilar, con flecha descendiente), y descargarán el PDF para enviarlo a mi persona.
+    \item Someterán la tarea a mi correo electrónico: \href{mailto:rmarcano@iu.edu}{rmarcano@iu.edu} con el Asunto (en inglés, \textit{Subject}) 'Tarea de SOCI 4186-001' si es de la sección 1 (lunes y miércoles) o 'Tarea de SOCI 4186-002' si es de la sección 2 (martes y jueves).
+\end{enumerate}
+
+Declaro que soy la única persona que trabajó en solucionar esta tarea.
+\newpage
+
+\textbf{Objetivo de esta tarea} (qué les estoy haciendo hacer)
+
+Al completar esta tarea, habrán aplicado y/o aprendido lo siguiente:
+\begin{enumerate}
+    \item Profundizar en el uso de \LaTeX para escribir documentos;
+    \item Saber si son elegibles a votar en las elecciones generales de Puerto Rico o Estados Unidos, y con qué requisitos;
+    \item Saber si hay comicios, y de qué tipo y con qué opciones, en su región.
+\end{enumerate}
+
+Si no fuere ciudadano de Puerto Rico o de los Estados Unidos de América, podrá completar la tarea como si tuviera la posibilidad de votar en comicios en Puerto Rico, o buscará y aprenderá si y cómo puede votar en las elecciones de su país de ciudadanía mientras estudie aquí. No tiene que divulgar su estatus migratorio o de ciudadanía para completar esta tarea.
+
+\textbf{Objetivo de la tarea}
+
+La participación en instituciones democráticas, como lo es el sufragio, es parte central de ser ciudadano comprometido en una república democrática. Como grupo, los jóvenes típicamente votan a tasas menores que los ciudadanos mayores, y esto incentiva a oficiales electos a enfocarse en políticas públicas que benefician a generaciones mayores, a veces a costa de las preferencias de los ciudadanos jóvenes. En algunos casos, los estudiantes universitarios tienen barreras adicionales, pues su residencia cerca de recintos universitarios lejanos a su hogar de origen puede resultar confuso. ¿Les toca votar donde se hospedan para asistir a la universidad, o en su residencia permanente? 
+
+\section*{Tarea}
+
+Completen esta tarea borrando las instrucciones que siguen (que estarán en cursiva) antes de someterla. Si no fuere ciudadano puertorriqueño o estadounidense, podrá completar las preguntas ... de una de dos formas: (1) como si fuera ciudadano puertorriqueño o estadounidense, basado en donde reside; ó (2) proveyendo información de cómo se vota en los comicios generales de su país de ciudadanía. Si su país no lleva a cabo elecciones nacionales, provea información de otro tipo de elección (local, por ejemplo), que se lleve a cabo en su país de origen. \textbf{\textit{Si no es ciudadano estadounidense o puertorriqueño, NO tiene que informarme de su estatus. Puede completar la tarea como si fuera ciudadano, y yo nunca me enteraría.}}
+
+\section{Lugar de votación}
+\textit{Determina dónde eres elegible para inscribirte para votar. ¿Te inscribirás con la dirección de tu escuela o con la dirección de tu ``hogar'' en otro lugar? Esto podría basarse en varios requisitos relacionados con cómo evidencia dónde se domicilia. Puede ser que si no es residente originalmente del área cercana al Recinto de Río Piedras, pero si se domicilia en la zona, o lejos de su hogar original, pueda o deba seleccionar dónde votará y esto puede llevar consideraciones varias. Asegúrate de determinar si tienes la documentación requerida para establecer tu domicilio a efectos de inscripción de votantes. Esta página web es un buen lugar para empezar si votaras en Puerto Rico}: \url{https://www.ceepur.org/ere/index.html} así como \url{https://ww2.ceepur.org/Home/FAQInformacionalElector}\textit{, mientras esta página es útil si fueras a votar, por ejemplo, en Indiana}: \url{https://www.in.gov/sos/elections/voter-information/ways-to-vote/college-students/}.
+\\
+Respuesta a modo de ejemplo: Votaré en Cupey, parte del precinto 4, en Puerto Rico.
+
+\section{Elecciones primarias, municipales, estatales/centrales}
+
+\textit{En el caso de Puerto Rico, que no es un Estado federal ni una mancomunidad (en el sentido de ``Commonwealth'' como estado federado), y que no puede votar en elecciones federales, es importante que primero determines si hay alguna elección este año. En Puerto Rico, las elecciones generales se celebran cada cuatro años, pero puede haber elecciones especiales o referendos en años intermedios. Averigua qué cargos o iniciativas estarán en la papeleta si hay una elección en tu zona.}
+
+\textit{Si estás registrado para votar en un Estado federal o mancomunidad de los Estados Unidos, o eres elegible para registrarte, determina si hay alguna elección federal o estatal en esa región este año. Diferentes estados fijan distintos años y fechas para las elecciones, incluyendo primarias o elecciones generales para cargos de gobernador, legislaturas, de condados y locales o municipales. Si hay una elección, verifica qué cargos estarán en la papeleta de tu sitio de votación y si habrá alguna elección especial o referendos (iniciativas) en la papeleta. Si no hay elecciones este año en ese estado, busca información sobre cuándo será la próxima elección.}
+\\
+Respuesta a modo de ejemplo: Las primarias ya ocurrieron para los partidos que las celebraron, siendo la fecha de primarias el 2 de junio para partidos de Puerto Rico, y los partidos federales celebraron las suyas el 31 de mayo. Este 5 de noviembre hay elecciones para... puestos. También habrá...
+
+\section{Registro electoral}
+
+\textit{Determina cómo puedes inscribirte para votar, incluyendo el formulario que necesitas llenar para votar (alternativamente, puedes proporcionar un enlace para la inscripción de votantes en línea. Pista: Puerto Rico tiene inscripción de votantes en línea:} \url{https://www.ceepur.org/ere/index.html}, mientras que la Comisión Estatal de Elecciones provee más información en \url{https://ww2.ceepur.org/Home/FAQInformacionalElector}). \textit{Enumera (usando el ambiente de enumeración o de itemización de \LaTeX) los documentos de apoyo que necesitas proporcionar para completar tu registro electoral (nota: no necesitas mostrarme copias reales de esos documentos, solo menciona cuáles son). Aquí tienes un enlace al sitio web principal del gobierno de EE. UU. sobre registro electoral (ojo: la información de Puerto Rico no está actualizada en ella, es de referencia general para los Estados federados y mancomunidades):} \url{https://vote.gov/register}.  
+
+\section{Fecha límite}
+
+Provee la fecha límite para registrarse a votar en Puerto Rico o tu estado para poder votar en la próxima elección general.
+
+\section{Elegibilidad para votar en primarias}
+
+\textit{A diferencia de las elecciones generales, las primarias incluyen elecciones separadas para cada partido político principal en un estado, mancomunidad o en Puerto Rico. Las personas solo pueden votar en una primaria, y los estados tienen diferentes reglas sobre quién puede votar en qué primaria. ¿Tu estado tiene primarias abiertas o cerradas? Es decir, ¿sólo puedes votar en una primaria de un partido si estás registrado con ese partido? ¿O puedes elegir en qué primaria deseas votar el mismo día del evento?}
+
+\end{document}
+
+
+
+
+
