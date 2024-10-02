@@ -45,6 +45,21 @@ tasa_homicidios_armas_de_fuego_EEUU<-murders |>
   summarise(tasa=sum(total)/sum(population)*100000)
 tasa_homicidios_armas_de_fuego_EEUU
 
+#si lo que queríamos era ver los máximos
+# Seleccionar la fila con el valor máximo en la columna `tasa`
+max_row <- murders |>
+  #mutate(tasa = total / population * 10^5) |> #comentado para invisibilizarlo, esto ya estaba
+  slice_max(tasa) # Selecciona la fila con el máximo `rate`
+
+max_row
+
+# Filtrar la fila donde el `tasa` es mínimo
+min_row <- murders |>
+  #mutate(tasa = total / population * 10^5) |> #comentado para invisibilizarlo, esto ya estaba
+  filter(row_number() == which.min(tasa))
+
+min_row
+
 #Resumen múltiple: queremos mediana, mínimo, máximo:
 heights|>
   filter(sex=="Female") |>
@@ -69,6 +84,8 @@ heights %>%
 # se distribuye la información a través destos.
 heights %>%
   group_by(sex)
+
+library(dplyr)
 
 
 heights %>%
