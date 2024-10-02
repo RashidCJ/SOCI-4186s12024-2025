@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}    
+\onehalfspacing
+\usepackage{graphicx}    
+\usepackage{amsmath}     
+%\usepackage{natbib}      % Apagado en esta tarea
+\usepackage{array}       
+\usepackage{multirow}    
+\usepackage{siunitx}     
+\usepackage{textcomp}    
+%\usepackage[utf8]{inputenc}  %ignorado, el compilador ya tiene utf8
+\usepackage[spanish,es-tabla]{babel}  
+\usepackage{csquotes}        
+\usepackage[top=1in,right=1in,left=1in,bottom=1in]{geometry} 
+\usepackage{makecell}
+\usepackage{hyperref}        
+
+\hypersetup{
+    unicode=true,            
+    pdftoolbar=true,         
+    pdfmenubar=true,         
+    pdffitwindow=false,      
+    pdfstartview={FitH},     
+    pdftitle={},             
+    pdfauthor={},            
+    pdfsubject={},           
+    pdfcreator={},           
+    pdfproducer={},          
+    pdfkeywords={},          
+    pdfnewwindow=true,       
+    colorlinks=true,         
+    linkcolor=blue,          
+    citecolor=blue,          
+    filecolor=blue,          
+    urlcolor=blue            
+}
+
+\usepackage[backend=biber,style=apa,natbib=true,language=spanish]{biblatex}
+\addbibresource{Referencias.bib}
+
+\defbibenvironment{bibliography}
+  {\list{}
+    {\setlength{\leftmargin}{0pt}%
+     \setlength{\itemindent}{\labelwidth}%
+     \addtolength{\itemindent}{\labelsep}%
+     \setlength{\itemsep}{\bibitemsep}%
+     \setlength{\parsep}{\bibparsep}}}
+  {\endlist}
+  {\item}
+
+\setlength\bibitemsep{1.5\baselineskip}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\title{SOCI 4186-00N\\ Tarea de Proyecto de Investigación \textnumero 3 \\ Borrador de la revisión de la literatura \\ \textsc{Individual o Nombre de Grupo}}
+\author{Pon tu nombre aquí \\ Número de estudiante}
+\date{\today} %dejen esto como está, con \today
+
+\begin{document}
+\singlespacing
+\maketitle
+Fecha de entrega: 6 de octubre de 2024.
+
+\begin{enumerate}
+    \item Descargarán este documento en el GitHub de la clase y lo subirán a la una carpeta en Overleaf. El compilador a usar es \texttt{XeLaTeX}.
+    \item Modificarán la N de SOCI 4186-00N según su sección. Si es individual, dejen \textsc{Individual}; si es grupal, cambien el texto de plantilla por el nombre del grupo.
+    \item Cambien el campo \texttt{\textbackslash author\{Pon tu nombre aquí\}}. Si es individual: su nombre completo seguido de \textbackslash\textbackslash y su número de estudiante. Si es en grupo, usen el formato: \texttt{\textbackslash author\{Estudiante 1 \textbackslash\textbackslash \ \textnumero\ de Estudiante 1 \textbackslash and Estudiante 2 \textbackslash\textbackslash \ \textnumero\ de Estudiante 2\textbackslash and Estudiante 3 \textbackslash\textbackslash \ \textnumero\ de Estudiante 3 \textbackslash and Estudiante 4 \textbackslash\textbackslash\ \textnumero\ de Estudiante 4\}}.
+    \item Presten atención a la ortografía y sintaxis española (acentos, tildes, diéresis) o escriban en una de las tres modalidades de inglés discutidas: británico, Oxford o estadounidense. Cíñanse a una lengua a través de todo el documento.
+%    \item Completarán como mejor sea posible la tarea, y podrán, si entienden necesario hacerlo, trabajar la tarea con compañeres de clase. Si así lo hicieren, pondrán antes de la sección 1 una oración indicándome con quién(es) trabajó la tarea. De lo contrario, dejarán la línea que está actualmente escrita.
+    \item Descarguen el PDF tras compilar (icono de flecha descendente) y envíenlo a mi correo electrónico: \href{mailto:rashid.marcano@upr.edu}{rashid.marcano@upr.edu}%\footnote{A menos que haya habilitado para ese momento un formato de entrega vía Moodle.} 
+    con el Asunto (en inglés, \textit{Subject}) `Tarea Proyecto 2 - SOCI 4186-001' si es de la sección 1 (lunes y miércoles) o `Tarea Proyecto 2 - SOCI 4186-002' si es de la sección 2 (martes y jueves).
+\end{enumerate}
+
+\section*{Formato del documento}
+Siga esta plantilla, borrando las instrucciones si así deseare tras concluir las respuestas o tener el PDF de instrucciones a la mano. El documento debe incluir:
+\begin{itemize}
+    \item Revisión de literatura.
+    \item Bibliografía en formato APA.
+\end{itemize}
+\onehalfspacing
+\section*{Revisión de literatura}
+Elaboración de un primer borrador de la revisión de la literatura basada en la bibliografía recopilada. Use adecuadamente citas textuales como señalaba a modo de ejemplo el autor \citet{hall2001introduction}, y parentéticas \citep[e.g]{hall2009institutional}, y cree una narrativa que atienda los puntos principales que quiere abordar.
+\printbibliography[title={Bibliografía}, heading=subbibliography]
+
+\end{document}
