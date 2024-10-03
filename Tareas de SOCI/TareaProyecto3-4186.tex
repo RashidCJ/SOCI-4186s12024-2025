@@ -38,8 +38,12 @@
 \usepackage[backend=biber,style=apa,natbib=true,language=spanish]{biblatex}
 \addbibresource{Referencias.bib}
 
+\setlength\bibitemsep{1.0\baselineskip}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+
+% Personalización para agregar bullets a la bibliografía
 \defbibenvironment{bibliography}
-  {\list{}
+  {\list{\labelitemi} % Usa el símbolo de bullet por defecto
     {\setlength{\leftmargin}{0pt}%
      \setlength{\itemindent}{\labelwidth}%
      \addtolength{\itemindent}{\labelsep}%
@@ -48,8 +52,6 @@
   {\endlist}
   {\item}
 
-\setlength\bibitemsep{1.5\baselineskip}
-\DeclareLanguageMapping{spanish}{spanish-apa}
 \title{SOCI 4186-00N\\ Tarea de Proyecto de Investigación \textnumero 3 \\ Borrador de la revisión de la literatura \\ \textsc{Individual o Nombre de Grupo}}
 \author{Pon tu nombre aquí \\ Número de estudiante}
 \date{\today} %dejen esto como está, con \today
@@ -77,7 +79,8 @@ Siga esta plantilla, borrando las instrucciones si así deseare tras concluir la
 \end{itemize}
 \onehalfspacing
 \section*{Revisión de literatura}
-Elaboración de un primer borrador de la revisión de la literatura basada en la bibliografía recopilada. Use adecuadamente citas textuales como señalaba a modo de ejemplo el autor \citet{hall2001introduction}, y parentéticas \citep[e.g]{hall2009institutional}, y cree una narrativa que atienda los puntos principales que quiere abordar.
+Elaboración de un primer borrador de la revisión de la literatura basada en la bibliografía recopilada. Use adecuadamente citas textuales como señalaba a modo de ejemplo el autor \citet{hall2001introduction}, y parentéticas \citep[e.g.,][, entre otros]{hall2009institutional}, y cree una narrativa que atienda los puntos principales que quiere abordar.
+
 \printbibliography[title={Bibliografía}, heading=subbibliography]
 
 \end{document}
