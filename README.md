@@ -5,6 +5,7 @@ Este repositorio contiene materiales y recursos para el curso **SOCI-4186: Técn
 ## Contenidos del Repositorio
 
 - **Prontuario**: Aquí encontrarás el prontuario del curso, titulado 'Prontuario SOCI 4186.pdf'. En este se detallan los objetivos, contenido, y políticas institucionales relevantes. Este prontuario estará actualizándose dadas las discusiones y eventos que ocurrieren durante el semestre en curso.
+- **Manual de RStudio**: Se puede acceder al libro que usaremos de referencia a través de [este enlace](https://rafalab.dfci.harvard.edu/dslibro/).
 - **Manual de LaTeX**: Se estarán subiendo manuales de LaTeX hechos por este servidor en formato PDF para referencia.
 - **Plantilla de LaTeX para Tareas**: (Semana II) Se ha subido dos plantillas, una, que hemos usado en el salón, conocida como main.tex (en Plantilla inicial ahora), y otra que usarán para contestar la tarea N.º1. La pueden utilizar para la redacción y presentación de sus tareas.
 - **Guía/Tutorial de GitHub**: Instrucciones básicas y recomendaciones para utilizar [GitHub](https://docs.github.com/es/get-started) y [GitHub Education](https://docs.github.com/es/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student), dirigidas a estudiantes que deseen versionar sus proyectos.
