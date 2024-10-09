@@ -196,3 +196,62 @@ murders |>
        y = "Homicidios por arma de fuego (escala log.)",
        color = "Región") +
   theme_economist()
+#ejemplos adicionales, y el quickplot
+data(murders)
+x <- log10(murders$population)
+y <- murders$total
+
+data.frame(x = x, y = y) |>
+  ggplot(aes(x, y)) +
+  geom_point()
+
+qplot(x, y)
+murdersg<-murders %>%
+  mutate(tasa= total/population *10^5,
+    ,grupo = case_when(
+    abb %in% c("ME", "NH", "VT", "MA", "RI", "CT") ~ "Nueva Inglaterra",
+    abb %in% c("WA", "OR", "CA") ~ "Costa del Pacífico",
+    region == "South" ~ "el Sur",
+    TRUE ~ "Otras regiones"))
+qplot(tasa, data = murdersg, geom= "density", fill = grupo, linetype=grupo)
+
+a <- murdersg|>
+  ggplot(aes(x = tasa))
+a 
+a+geom_area(stat="bin")
+a+ geom_density()
+a+ geom_density(aes(color = grupo)) 
+a+ geom_density(aes(fill = grupo),alpha=0.4) 
+
+
+mu<-murdersg %>%
+  group_by(grupo) %>%
+  summarise(mediagrupal=mean(tasa))
+head(mu)
+
+a+ geom_density(aes(color = grupo)) +
+  geom_vline(data=mu, aes(xintercept=mediagrupal, color=grupo),
+             linetype="dashed") +
+  scale_color_manual(values=c("#999999", "#E69F00","skyblue","red3")) 
+ 
+data(heights)            
+mu_alt<-heights %>%
+  group_by(sex) %>%
+  summarise(media=mean(height))
+b<-heights|>ggplot()
+qplot(sex, height, data = heights, geom= "boxplot", fill = sex)
+qplot(sex, height, data = heights, geom= "violin", fill = sex)
+qplot(sex, height, data = heights, geom = "dotplot",
+      stackdir = "center", binaxis = "y", dotsize = 0.3)
+qplot(height, data = heights, geom = "density", fill = sex)
+qplot(height, data = heights, geom = "density", color = sex, linetype = sex)
+b
+b+geom_density(aes(x=height,colour = sex)) 
+b+geom_density(aes(x=height,fill = sex), alpha=0.4)
+mu_alt
+c<-heights|>ggplot(aes(x = height))
+c+geom_density(aes(fill = sex), alpha=0.4)
+c+ geom_density(aes(color = sex)) +
+  geom_vline(data=mu_alt, aes(xintercept=media, color=sex),
+             linetype="dashed") +
+  scale_color_manual(values=c("#999999", "#E69F00")) 
