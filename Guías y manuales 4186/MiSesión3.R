@@ -255,3 +255,185 @@ c+ geom_density(aes(color = sex)) +
   geom_vline(data=mu_alt, aes(xintercept=media, color=sex),
              linetype="dashed") +
   scale_color_manual(values=c("#999999", "#E69F00")) 
+
+
+#Visualización en la práctica
+library(tidyverse)
+library(dslabs)
+data(gapminder)
+gapminder |> as_tibble()
+
+gapminder |>
+  filter(year == 2015 & country %in% c("Sri Lanka","Turkey")) |>
+  select(country, infant_mortality)
+#¿se divide el mundo en las dicotomías de países ricos y occidentales ricos y de alta esperanza de vida
+#vs países pobres de familias grandes y vidas cortas?
+#¡usemos datos y visualizaciones!
+filter(gapminder, year == 1962) |>
+  ggplot(aes(fertility, life_expectancy)) +
+  geom_point()
+
+filter(gapminder, year == 1962) |>
+  ggplot(aes(fertility, life_expectancy, colour = continent)) +
+  geom_point()
+
+filter(gapminder, year%in%c(1962, 2012)) |>
+  ggplot(aes(fertility, life_expectancy, colour = continent)) +
+  geom_point() +
+  facet_grid(continent~year)
+
+filter(gapminder, year%in%c(1962, 2012)) |>
+  ggplot(aes(fertility, life_expectancy, col = continent)) +
+  geom_point() +
+  facet_grid(. ~ year)
+
+years <- c(1962, 1980, 1990, 2000, 2012)
+continents <- c("Europe", "Asia")
+gapminder |>
+  filter(year %in% years & continent %in% continents) |>
+  ggplot( aes(fertility, life_expectancy, colour = continent)) +
+  geom_point() +
+  facet_wrap(~year)
+
+filter(gapminder, year%in%c(1962, 2012)) |>
+  ggplot(aes(fertility, life_expectancy, colour = continent)) +
+  geom_point() +
+  facet_wrap(. ~ year, scales = "free")
+
+gapminder |>
+  filter(country == "United States") |>
+  ggplot(aes(year, fertility)) +
+  geom_point()
+
+gapminder |>
+  filter(country == "United States") |>
+  ggplot(aes(year, fertility)) +
+  geom_line()
+
+countries <- c("South Korea","Germany")
+
+gapminder |> filter(country %in% countries & !is.na(fertility)) |>
+  ggplot(aes(year, fertility, group = country)) +
+  geom_line()
+
+gapminder |> filter(country %in% countries & !is.na(fertility)) |>
+  ggplot(aes(year,fertility, colour = country)) +
+  geom_line()
+
+labels <- data.frame(country = countries, x = c(1975,1965), y = c(60,72))
+
+gapminder |>
+  filter(country %in% countries) |>
+  ggplot(aes(year, life_expectancy, col = country)) +
+  geom_line() +
+  geom_text(data = labels, aes(x, y, label = country), size = 5) +
+  theme(legend.position = "none")
+
+
+gapminder <- gapminder |> mutate(dollars_per_day = gdp/population/365)
+
+past_year <- 1970
+
+
+
+gapminder |>
+  filter(year == past_year & !is.na(gdp)) |>
+  mutate(region = reorder(region, dollars_per_day, FUN = median)) |>
+  ggplot(aes(dollars_per_day, region)) +
+  geom_point() +
+  scale_x_continuous(trans = "log2")
+
+gapminder <- gapminder |>
+  mutate(group = case_when(
+    region %in% c("Western Europe", "Northern Europe","Southern Europe",
+                  "Northern America",
+                  "Australia and New Zealand") ~ "Occidente",
+    region %in% c("Eastern Asia", "South-Eastern Asia") ~ "Asia oriental",
+    region %in% c("Caribbean", "Centroamérica y Caribe",
+                  "South America") ~ "Sudamérica",
+    continent == "Africa" &
+      region != "Northern Africa" ~ "África subsahariana",
+    TRUE ~ "Otros"))
+#le damos orden a los niveles
+gapminder <- gapminder |>
+  mutate(group = factor(group, levels = c("Otros", "Sudamérica",
+                                          "Asia oriental", "África subsahariana",
+                                          "Occidente")))
+
+p <- gapminder |>
+  filter(year == past_year & !is.na(gdp)) |>
+  ggplot(aes(group, dollars_per_day)) +
+  geom_boxplot() +
+  scale_y_continuous(trans = "log2") +
+  xlab("") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+p
+p + geom_point(alpha = 0.5)
+
+library(ggridges)
+p <- gapminder |>
+  filter(year == past_year & !is.na(dollars_per_day)) |>
+  ggplot(aes(dollars_per_day, group)) +
+  scale_x_continuous(trans = "log2")
+p + geom_density_ridges()
+p + geom_density_ridges(jittered_points = TRUE)
+
+p + geom_density_ridges(jittered_points = TRUE,
+                        position = position_points_jitter(height = 0),
+                        point_shape = '|', point_size = 3,
+                        point_alpha = 1, alpha = 0.7)
+gapminder$group
+
+past_year <- 1970
+present_year <- 2010
+years <- c(past_year, present_year)
+gapminder |>
+  filter(year %in% years & !is.na(gdp)) |>
+  mutate(west = ifelse(group == "Occidente", "Occidente", "El Resto")) |>
+  ggplot(aes(dollars_per_day)) +
+  geom_histogram(binwidth = 1, color = "black") +
+  scale_x_continuous(trans = "log2") +
+  facet_grid(year ~ west)
+
+country_list_1 <- gapminder |>
+  filter(year == past_year & !is.na(dollars_per_day)) |>
+  pull(country)
+
+country_list_2 <- gapminder |>
+  filter(year == present_year & !is.na(dollars_per_day)) |>
+  pull(country)
+
+country_list <- intersect(country_list_1, country_list_2)
+
+gapminder |>
+  filter(year %in% years & country %in% country_list) |>
+  ggplot(aes(group, dollars_per_day)) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  scale_y_continuous(trans = "log2") +
+  xlab("") +
+  facet_grid(. ~ year)
+
+gapminder |>
+  filter(year %in% years & country %in% country_list) |>
+  mutate(year = factor(year)) |>
+  ggplot(aes(group, dollars_per_day, fill = year)) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  scale_y_continuous(trans = "log2") +
+  xlab("")
+
+gapminder |>
+  filter(year %in% years & country %in% country_list) |>
+  ggplot(aes(dollars_per_day)) +
+  geom_density(fill = "grey") +
+  scale_x_continuous(trans = "log2") +
+  facet_grid(. ~ year)
+
+gapminder |>
+  filter(year %in% years & country %in% country_list) |>
+  mutate(group = ifelse(group == "Occidente", "Occidente", "Resto")) |>
+  ggplot(aes(dollars_per_day, fill = group)) +
+  scale_x_continuous(trans = "log2") +
+  geom_density(alpha = 0.2) +
+  facet_grid(year ~ .)
