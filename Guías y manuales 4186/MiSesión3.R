@@ -84,7 +84,7 @@ murdersg<-murders %>%
 pie(murdersg$tasa_100k)
 
 murdersg
-pie(murdersg$tasa_100k, labels = c("Costa del Pacífico (¿?)","Nueva Inglaterra","Otras regiones","el Sur (¿?)"))
+pie(murdersg$tasa_100k, labels = c("Costa del Pacífico (¿?)","Nueva Inglaterra","Otras regiones (¿?)","el Sur"))
 
 murders %>%
   group_by(region) %>%
@@ -96,9 +96,9 @@ murdersg |>
   ggplot() +
   geom_col(aes(x=grupo, y=tasa_100k))
 
-murders |>
+murdersg |>
   ggplot()+
-  geom_col(aes(x=tasa,y=region))
+  geom_col(aes(x=tasa_100k,y=grupo))
 
 murders %>%
   ggplot() +
@@ -149,11 +149,11 @@ p2<-murders %>%
 p2
 p2+geom_text(aes(x = log(population/10^6), y = log(total), label = abb), nudge_y = 0.3)+
   labs(
-  x = "Población (millones, escala log.)",   # Cambia el nombre del eje x
-  y = "Homicidios por arma de fuego (escala log.)",            # Cambia el nombre del eje y
-  colour = "Región",              # Cambia el nombre de la leyenda de color
-  title = "Homicidios por arma de fuego vs población, por región"  # Título del gráfico
-)
+    x = "Población (millones, escala log.)",   # Cambia el nombre del eje x
+    y = "Homicidios por arma de fuego (escala log.)",            # Cambia el nombre del eje y
+    colour = "Región",              # Cambia el nombre de la leyenda de color
+    title = "Homicidios por arma de fuego vs población, por región"  # Título del gráfico
+  )
 
 #de hecho siguiendo el libro, ggplot está acostumbrado a esta transformación y 
 #ofrece sus funciones:
@@ -172,7 +172,7 @@ p3<-p3+
   )
 
 library(ggthemes)
-p3 + theme_fivethirtyeight()
+p3 + theme_economist()
 #varios themes disponibles.
 
 #todo junto
@@ -208,11 +208,11 @@ data.frame(x = x, y = y) |>
 qplot(x, y)
 murdersg<-murders %>%
   mutate(tasa= total/population *10^5,
-    ,grupo = case_when(
-    abb %in% c("ME", "NH", "VT", "MA", "RI", "CT") ~ "Nueva Inglaterra",
-    abb %in% c("WA", "OR", "CA") ~ "Costa del Pacífico",
-    region == "South" ~ "el Sur",
-    TRUE ~ "Otras regiones"))
+         ,grupo = case_when(
+           abb %in% c("ME", "NH", "VT", "MA", "RI", "CT") ~ "Nueva Inglaterra",
+           abb %in% c("WA", "OR", "CA") ~ "Costa del Pacífico",
+           region == "South" ~ "el Sur",
+           TRUE ~ "Otras regiones"))
 qplot(tasa, data = murdersg, geom= "density", fill = grupo, linetype=grupo)
 
 a <- murdersg|>
@@ -233,7 +233,7 @@ a+ geom_density(aes(color = grupo)) +
   geom_vline(data=mu, aes(xintercept=mediagrupal, color=grupo),
              linetype="dashed") +
   scale_color_manual(values=c("#999999", "#E69F00","skyblue","red3")) 
- 
+
 data(heights)            
 mu_alt<-heights %>%
   group_by(sex) %>%
@@ -437,3 +437,4 @@ gapminder |>
   scale_x_continuous(trans = "log2") +
   geom_density(alpha = 0.2) +
   facet_grid(year ~ .)
+  
