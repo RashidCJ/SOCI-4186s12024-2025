@@ -1,0 +1,131 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}    
+\onehalfspacing
+\usepackage{graphicx}    
+\usepackage{amsmath}     
+%\usepackage{natbib}      % Apagado en esta tarea
+\usepackage{array}       
+\usepackage{multirow}    
+\usepackage{siunitx}     
+\usepackage{textcomp}    
+%\usepackage[utf8]{inputenc}  %ignorado, el compilador ya tiene utf8
+\usepackage[spanish,es-tabla]{babel}  
+\usepackage{csquotes}        
+\usepackage[top=1in,right=1in,left=1in,bottom=1in]{geometry} 
+\usepackage{makecell}
+\usepackage{hyperref}        
+
+\hypersetup{
+    unicode=true,            
+    pdftoolbar=true,         
+    pdfmenubar=true,         
+    pdffitwindow=false,      
+    pdfstartview={FitH},     
+    pdftitle={},             
+    pdfauthor={},            
+    pdfsubject={},           
+    pdfcreator={},           
+    pdfproducer={},          
+    pdfkeywords={},          
+    pdfnewwindow=true,       
+    colorlinks=true,         
+    linkcolor=blue,          
+    citecolor=blue,          
+    filecolor=blue,          
+    urlcolor=blue            
+}
+
+\usepackage[backend=biber,style=apa,natbib=true,language=spanish]{biblatex}
+\addbibresource{Referencias.bib}
+
+\setlength\bibitemsep{1.0\baselineskip}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+
+% Personalización para agregar bullets a la bibliografía
+\defbibenvironment{bibliography}
+  {\list{\labelitemi} % Usa el símbolo de bullet por defecto
+    {\setlength{\leftmargin}{0pt}%
+     \setlength{\itemindent}{\labelwidth}%
+     \addtolength{\itemindent}{\labelsep}%
+     \setlength{\itemsep}{\bibitemsep}%
+     \setlength{\parsep}{\bibparsep}}}
+  {\endlist}
+  {\item}
+
+\title{SOCI 4186-00N\\ Tarea de Proyecto de Investigación \textnumero 5 \\ Análisis de datos explorativo \\ \textsc{Individual o Nombre de Grupo}}
+\author{Pon tu nombre aquí \\ Número de estudiante}
+\date{\today} %dejen esto como está, con \today
+
+\begin{document}
+\singlespacing
+\maketitle
+Fecha sugerida de entrega: 25 de noviembre de 2024.
+
+\begin{enumerate}
+    \item Descargarán este documento en el GitHub de la clase y lo subirán a la una carpeta en Overleaf. El compilador a usar es \texttt{XeLaTeX}.
+    \item Modificarán la N de SOCI 4186-00N según su sección. Si es individual, dejen \textsc{Individual}; si es grupal, cambien el texto de plantilla por el nombre del grupo.
+    \item Cambien el campo \texttt{\textbackslash author\{Pon tu nombre aquí\}}. Si es individual: su nombre completo seguido de \textbackslash\textbackslash y su número de estudiante. Si es en grupo, usen el formato: \texttt{\textbackslash author\{Estudiante 1 \textbackslash\textbackslash \ \textnumero\ de Estudiante 1 \textbackslash and Estudiante 2 \textbackslash\textbackslash \ \textnumero\ de Estudiante 2\textbackslash and Estudiante 3 \textbackslash\textbackslash \ \textnumero\ de Estudiante 3 \textbackslash and Estudiante 4 \textbackslash\textbackslash\ \textnumero\ de Estudiante 4\}}.
+    \item Presten atención a la ortografía y sintaxis española (acentos, tildes, diéresis) o escriban en una de las tres modalidades de inglés discutidas: británico, Oxford o estadounidense. Cíñanse a una lengua a través de todo el documento.
+%    \item Completarán como mejor sea posible la tarea, y podrán, si entienden necesario hacerlo, trabajar la tarea con compañeres de clase. Si así lo hicieren, pondrán antes de la sección 1 una oración indicándome con quién(es) trabajó la tarea. De lo contrario, dejarán la línea que está actualmente escrita.
+    \item Descarguen el PDF tras compilar (icono de flecha descendente) y envíenlo a mi correo electrónico: \href{mailto:rashid.marcano@upr.edu}{rashid.marcano@upr.edu}%\footnote{A menos que haya habilitado para ese momento un formato de entrega vía Moodle.} 
+     ~con el Asunto (en inglés, \textit{Subject}) `Tarea Proyecto 4 - SOCI 4186-001' si es de la sección 1 (lunes y miércoles) o `Tarea Proyecto 4 - SOCI 4186-002' si es de la sección 2 (martes y jueves).
+\end{enumerate}
+
+\section*{Formato del documento}
+Siga esta plantilla, borrando las instrucciones si así deseare tras concluir las respuestas o tener el PDF de instrucciones a la mano. 
+\begin{enumerate}
+\begin{itemize}
+    \item \textbf{Portada:} Sigan las instrucciones y formato anteriormente mencionados. 
+    \item \textbf{Espaciado:} Mantengan espaciado de 1.5 líneas (\texttt{\textbackslash onehalfspacing}).
+    \item \textbf{Fuentes y estilos:} Sigan las directrices de formato establecidas en la plantilla de \LaTeX proporcionada.
+\end{itemize}
+
+\item \textbf{Contenido del Análisis de Datos Explorativo:} El documento deberá incluir, las siguientes secciones:
+\begin{enumerate}
+    \item \textbf{Descripción de los Datos:} Proporcionen una descripción detallada de las variables incluidas en su conjunto de datos, incluyendo tipos de variables (nominales, categóricas, numéricas), definiciones operacionales y cualquier transformación aplicada o a aplicarse.
+
+    \item \textbf{Estadísticas Descriptivas:} Presenten medidas de tendencia central (e.g., media, mediana), dispersión (e.g., desviación estándar, rango intercuartílico) y distribución para las variables clave. Pueden crear una tabla en Overleaf, escribiendo los datos importantes que ayuden a entender la(s) variable(s), o copiar y pegar la tabla sumaria que se genere en R con el código proporcionado. Recomiendo también la página \url{https://www.latex-tables.com/} para generar tablas para \LaTeX (pueden crearlas en Excel, subirlas, y darles forma, apretar `Generate', y copiarlas a Overleaf).
+
+    \item \textbf{Visualizaciones:} De ser posible, incluyan gráficos o visualizaciones que faciliten la comprensión de los datos, tales como:
+    \begin{itemize}
+        \item Histogramas
+        \item Diagramas de cajas (boxplots)
+        \item Gráficos de dispersión (scatter plots)
+        \item Diagramas de barras
+        \item Representación geográfica (mapas)
+    \end{itemize}
+
+    \item \textbf{Análisis de correlación:} Si los datos lo permiten, evalúen las relaciones entre variables utilizando matrices de correlación y pruebas de significancia, cuando sea apropiado.
+
+    \item \textbf{Identificación de valores atípicos y datos faltantes:} Detecten y describan cualquier valor atípico o datos faltantes presentes en el conjunto de datos, y expliquen cómo han manejado estas observaciones en su análisis.
+
+    \item \textbf{Resumen y conclusiones iniciales:} Resuman los hallazgos más relevantes de su análisis exploratorio y discutan posibles implicaciones para las etapas posteriores de la investigación, en ruta al trabajo final.
+\end{enumerate}
+
+\item \textbf{Metodología:} Describan brevemente las herramientas y técnicas estadísticas utilizadas para llevar a cabo el análisis exploratorio. Pueden mencionar software (por ejemplo, R) y paquetes o librerías específicas que hayan empleado.
+
+\item \textbf{Formato y Estilo:}
+\begin{itemize}
+    \item \textbf{Lenguaje:} Mantengan la coherencia en el uso del idioma seleccionado (español o una de las variantes del inglés especificadas en las instrucciones anteriores).
+    \item \textbf{Citas y Referencias:} Si utilizan fuentes externas para justificar sus métodos o interpretar resultados, asegúrense de citarlas adecuadamente.
+\end{itemize}
+\end{enumerate}
+
+\subsection*{Criterios de Evaluación}
+
+Su trabajo será evaluado en función de los siguientes aspectos:
+
+\begin{itemize}
+\item \textbf{Completitud:} Incluye todas las secciones requeridas y responde adecuadamente a cada una.
+\item \textbf{Claridad y Coherencia:} La información está presentada de manera clara y lógica.
+\item \textbf{Calidad del Análisis:} Uso adecuado de técnicas estadísticas y visualizaciones pertinentes.
+\item \textbf{Presentación:} Documento bien formateado, sin errores ortográficos ni gramaticales.
+\item \textbf{Referencias:} Correcta citación de fuentes utilizadas.
+\end{itemize}
+
+
+Si tienen alguna duda o requieren asistencia adicional, no duden en ponerse en contacto conmigo a través del correo electrónico: \href{mailto:rashid.marcano@upr.edu}{rashid.marcano@upr.edu} o durante las horas de oficina establecidas.
+
+\printbibliography[title={Bibliografía}, heading=subbibliography]
+
+\end{document}
