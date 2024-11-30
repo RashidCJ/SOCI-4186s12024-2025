@@ -1,0 +1,181 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}    
+\onehalfspacing
+\usepackage{graphicx}    
+\usepackage{amsmath}     
+%\usepackage{natbib}      % Apagado en esta tarea
+\usepackage{array}       
+\usepackage{multirow}    
+\usepackage{siunitx}     
+\usepackage{textcomp}    
+%\usepackage[utf8]{inputenc}  %ignorado, el compilador ya tiene utf8
+\usepackage[spanish,es-tabla]{babel}  
+\usepackage{csquotes}        
+\usepackage[top=1in,right=1in,left=1in,bottom=1in]{geometry} 
+\usepackage{makecell}
+\usepackage{hyperref}        
+
+\hypersetup{
+    unicode=true,            
+    pdftoolbar=true,         
+    pdfmenubar=true,         
+    pdffitwindow=false,      
+    pdfstartview={FitH},     
+    pdftitle={},             
+    pdfauthor={},            
+    pdfsubject={},           
+    pdfcreator={},           
+    pdfproducer={},          
+    pdfkeywords={},          
+    pdfnewwindow=true,       
+    colorlinks=true,         
+    linkcolor=blue,          
+    citecolor=blue,          
+    filecolor=blue,          
+    urlcolor=blue            
+}
+
+\usepackage[backend=biber,style=apa,natbib=true,language=spanish]{biblatex}
+\addbibresource{Referencias.bib}
+
+\setlength\bibitemsep{1.0\baselineskip}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+
+% Personalización para agregar bullets a la bibliografía
+\defbibenvironment{bibliography}
+  {\list{\labelitemi} % Usa el símbolo de bullet por defecto
+    {\setlength{\leftmargin}{0pt}%
+     \setlength{\itemindent}{\labelwidth}%
+     \addtolength{\itemindent}{\labelsep}%
+     \setlength{\itemsep}{\bibitemsep}%
+     \setlength{\parsep}{\bibparsep}}}
+  {\endlist}
+  {\item}
+
+\title{SOCI 4186-000    \\ Tarea de Proyecto de Investigación \textnumero 5 \\ Análisis de datos explorativo \\ \textsc{Individual}}
+\author{Rashid C.J. Marcano Rivera \\ 801-06-4104}
+\date{\today} %dejen esto como está, con \today
+
+\begin{document}
+\singlespacing
+\maketitle
+Fecha sugerida de entrega: 2 de diciembre de 2024.
+
+
+\section{Introducción}
+
+El presente documento tiene como objetivo realizar un análisis de datos exploratorio (ADE) para comprender cómo diferentes grupos etarios perciben el atractivo de jangueo en Río Piedras. También analiza cómo personas de distintas regiones perciben el ornato de Río Piedras. A través de este análisis, se busca identificar patrones y relaciones que puedan orientar futuras intervenciones y estrategias para mejorar la percepción de esta zona como espacio de socialización en grupos de interés para la comunidad riopedrense.
+
+\section{Datos}
+
+Los datos utilizados provienen de una encuesta suministrada a los estudiantes de las secciones 1 y 2 de la clase SOCI 4186 durante el primer semestre del año académico 2024-2025. Además, se incluyó un cohorte adicional compuesto por egresados del Recinto de Río Piedras conocidos del profesor Marcano Rivera. La recopilación de datos se llevó a cabo de manera digital utilizando la herramienta Google Forms, entre los días 21 y 23 de octubre de 2024. 
+
+Para el presente análisis, se seleccionaron cuatro variables principales de interés: \texttt{edad}, \texttt{región}, \texttt{ornato} y \texttt{atractivo\_jangueo}. Tras eliminar entradas problemáticas (personas que no respondieron), se obtuvieron 29 observaciones válidas ($n=29$).
+
+\subsection{Variables examinadas}
+
+La variable \texttt{edad} es categórica ordinal, con intervalos definidos en los grupos: 18 a 20, 21 a 23, 24 a 29, 30 a 39 y 40 a 49. Por su parte, \texttt{región}, una variable categórica nominal, clasifica la vivienda del encuestado en tres categorías: San Juan (incluyendo la isleta del Viejo San Juan, Santurce y el antiguo municipio de Río Piedras), el área metropolitana (excluyendo San Juan) y el resto del archipiélago borincano.
+
+La variable \texttt{ornato} mide la percepción del ornato del casco urbano de Río Piedras en una escala categórica ordinal: A, B, C, D y F. Finalmente, \texttt{atractivo\_jangueo} evalúa si Río Piedras es percibido como un lugar atractivo para socializar (\textit{janguear}), en una escala categórica nominal de tres opciones: `Sí', `No sé' y `No'.
+
+La variable de edad se puede ver distribuida en la tabla \ref{tab:edad}. En esta se puede apreciar que el grupo supermayoritario corresponde a los encuestados que tienen entre 21 y 23 años de edad. Otros grupos tienen entradas menores, pero de los 29 encuestados que afirmaron de alguna manera respuesta, 17 se concentran en la categoría mencionada. Esto es esperable dado que la población evaluada con énfasis fue el estudiantado universitario de un curso que normalmente se toma en los últimos semestres de la carrera subgraduada.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Histogramas.png}
+    \caption{Distribución de las respuestas para las variables examinadas: \texttt{edad}, \texttt{región}, \texttt{ornato} y \texttt{atractivo\_jangueo}.}
+    \label{fig:histogramas}
+\end{figure}
+
+
+En la Figura~\ref{fig:histogramas}, se observa que la mayoría de los encuestados vive en el área metropolitana de San Juan, incluyendo tanto San Juan como los municipios aledaños. Un 27.59\% reportó residir fuera de esta área. En cuanto a \texttt{edad}, nuevamente podemos apreciar, ahora en histograma, que predomina el grupo de 21 a 23 años, principalmente estudiantes universitarios. Las percepciones sobre \texttt{ornato} muestran una inclinación hacia calificaciones promedio (una pluralidad se coloca en `C'), mientras que las respuestas sobre \texttt{atractivo\_jangueo} presentan mayor variabilidad, aunque con una pluralidad decantándose por el `Sí'.
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|} \hline 
+         Edad&  18-20&  21-23&  24-29&  30-39& 40-49\\ \hline 
+         Cantidad&  4&  17&  3&  4& 1\\ \hline
+    \end{tabular}
+    \caption{Frecuencias de categoría etaria}
+    \label{tab:edad}
+\end{table}
+
+
+\subsection{Relacionando variables}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{barras_edad_jangueo.png}
+    \caption{Gráfico relacionando la variable de atractividad de jangueo en Río Piedras con grupos etarios}
+    \label{fig:edadjangueo}
+\end{figure}
+
+El análisis de las variables \texttt{edad} y \texttt{atractivo\_jangueo} sugiere una tendencia interesante en la percepción de Río Piedras como un lugar atractivo para socializar. Los datos indican que:
+
+\begin{enumerate}
+    \item 	\textbf{Descenso en la indecisión según la edad}: Los encuestados más jóvenes (18-20 años) muestran una mayor proporción de respuestas indecisas o negativas respecto al atractivo de jangueo. En contraste, los grupos de edad más avanzados (24-29 años y mayores, exceptuando el de 40-49) tienden a responder afirmativamente con mayor frecuencia, lo que refleja una disminución en la indecisión y mayor confianza en su evaluación.
+    \item 	Los encuestados en el rango de 30 a 39 años muestran la proporción más alta de respuestas positivas respecto al atractivo de jangueo. Esto podría sugerir que los individuos con mayor experiencia o exposición al área tienen una percepción más favorable de las oportunidades de socialización. Alternativamente, un efecto nostálgico se asienta al recordar los mayores en la muestra sus tiempos de bachillerato en Río Piedras, y califican con mejores notas la región.
+\end{enumerate}
+
+Este patrón sugiere que cualquier intervención para mejorar la percepción de Río Piedras como un espacio atractivo para jangueo podría beneficiarse de dirigirse específicamente a los grupos más jóvenes, resaltando aspectos que mitiguen sus dudas o percepciones negativas. En adición debe recalcarse que si bien el grupo de 40-49 está totalmente opuesto a encontrar a Río Piedras como un sitio atractivo para socializar en jangueo, esto equivale a una única observación. Por esta razón ha tendido a ser obviada en el análisis descrito de antemano.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{barras_región_ornato.png}
+    \caption{Gráfico relacionando la variable calificación de ornato de Río Piedras con región del encuestado.}
+    \label{fig:region_ornato}
+\end{figure}
+
+La Figura~\ref{fig:region_ornato} muestra la relación entre la región de residencia de los encuestados y sus calificaciones sobre el ornato del casco urbano de Río Piedras. Se observa una tendencia clara: los encuestados residentes en San Juan tienden a emitir calificaciones más positivas, mientras que las personas que viven fuera del área metropolitana tienden a calificar el ornato de manera más crítica. 
+
+En particular:
+\begin{itemize}
+    \item Las calificaciones negativas (\texttt{D} y \texttt{F}) son más frecuentes entre los encuestados que residen en el área metropolitana de San Juan, mas no en San Juan mismo. Del mismo modo los residentes de pueblos fuera del área metropolitana otorgaron notas relativamente deficientes al ornato de Río Piedras.
+    \item Las calificaciones promedio (\texttt{C}) predominan en la región metropolitana.
+    \item San Juan presenta un mayor porcentaje de calificaciones positivas (\texttt{A} y \texttt{B}) en comparación con las otras regiones, a la vez que no otorga la calificación de \texttt{D} a diferencia de las otras regiones del país.
+\end{itemize}
+
+Esto sugiere que la percepción del ornato puede estar influenciada por la cercanía al casco urbano de Río Piedras, posiblemente debido a un mayor contacto o familiaridad con la zona entre los residentes de San Juan.
+
+\section{Resumen y conclusiones iniciales}
+
+El análisis exploratorio realizado sobre las variables \texttt{edad}, \texttt{región}, \texttt{ornato} y \texttt{atractivo\_jangueo} ha revelado patrones interesantes en la percepción de Río Piedras como un lugar atractivo para socializar y en la valoración de su ornato urbano.
+
+En relación con la \texttt{edad} y el \texttt{atractivo\_jangueo}:
+
+\begin{itemize}
+    \item \textbf{Descenso en la indecisión según la edad}: Los encuestados más jóvenes (18-20 años) muestran una mayor proporción de respuestas indecisas o negativas respecto al atractivo de jangueo en Río Piedras. En contraste, los grupos de edad más avanzada (24-29 años y mayores) tienden a responder afirmativamente con mayor frecuencia, indicando una disminución en la indecisión y mayor confianza en su evaluación.
+    \item \textbf{Efecto nostálgico en grupos mayores}: Los encuestados de 30 a 39 años presentan la proporción más alta de respuestas positivas. Esto podría sugerir que individuos con mayor experiencia o exposición al área tienen una percepción más favorable, o que existe un efecto nostálgico al recordar sus tiempos de bachillerato en Río Piedras.
+\end{itemize}
+
+En cuanto a la \texttt{región} y el \texttt{ornato}:
+
+\begin{itemize}
+    \item \textbf{Influencia de la residencia en la percepción del ornato}: Los residentes de San Juan tienden a otorgar calificaciones más positivas al ornato del casco urbano de Río Piedras. Por otro lado, los encuestados que viven fuera del área metropolitana muestran una tendencia a calificaciones más críticas.
+\end{itemize}
+
+Estos hallazgos sugieren que las intervenciones para mejorar la percepción de Río Piedras como un espacio atractivo para jangueo deberían enfocarse en los grupos más jóvenes, abordando sus dudas y percepciones negativas. Además, promover el ornato y destacar mejoras urbanísticas podría influir positivamente en la percepción de residentes de regiones más distantes.
+
+\subsection{Pasos a seguir}
+
+Para profundizar en estos hallazgos y validar las tendencias observadas, se propone lo siguiente:
+
+\begin{enumerate}
+    \item \textbf{Aplicar pruebas de chi cuadrado}: Estas pruebas permiten determinar si las diferencias observadas en las percepciones entre distintos grupos de edad y región son estadísticamente significativas. Al ser las variables categóricas, el chi cuadrado es adecuado para analizar asociaciones entre ellas.
+    \item \textbf{Considerar análisis adicionales}: Si bien no es necesario realizar una regresión en este punto, en futuras etapas podría explorarse el uso de regresiones logísticas u ordinales para modelar la probabilidad de percepciones positivas en función de múltiples variables independientes.
+    \item \textbf{Ampliar el tamaño muestral}: Con 29 observaciones, los resultados actuales ofrecen una visión preliminar. Incrementar el número de encuestados mejoraría la representatividad y confiabilidad de los análisis estadísticos de miras al proyecto final de este curso.
+    \item \textbf{Explorar otras variables}: Incluir variables adicionales como nivel educativo, frecuencia de visitas a Río Piedras o participación en actividades culturales podría ofrecer una comprensión más completa de los factores que influyen en las percepciones.
+    \item \textbf{Desarrollar estrategias de intervención}: Basándose en los resultados, diseñar campañas o iniciativas que aborden las preocupaciones de los grupos identificados, promoviendo a Río Piedras como un destino atractivo para janguear y destacando mejoras en su ornato urbano.
+\end{enumerate}
+
+\subsection{Conclusión}
+
+El análisis exploratorio ha permitido identificar patrones clave en cómo diferentes grupos perciben a Río Piedras. La edad y la región de residencia emergen como factores influyentes en la percepción del atractivo de jangueo y del ornato. Dirigir esfuerzos específicos hacia los grupos más jóvenes y residentes fuera del área metropolitana podría ser esencial para mejorar la imagen y atractivo de Río Piedras.
+
+Este documento sirve como base para futuras investigaciones y acciones. Al continuar con análisis más profundos y ampliar el alcance del estudio, se podrá contribuir de manera significativa al desarrollo y revitalización de Río Piedras como un espacio vibrante y acogedor para todos.
+
+\end{document}
+
+\printbibliography[title={Bibliografía}, heading=subbibliography]
+
+\end{document}
