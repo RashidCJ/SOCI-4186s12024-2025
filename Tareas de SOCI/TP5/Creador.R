@@ -64,3 +64,12 @@ library(gridExtra)
 
 # Disposición 2x2 con grid.arrange
 grid.arrange(a, b, c, d, ncol = 2, nrow = 2)
+
+#alternativamente, pueden poner dentro del título qué parte de la subimagen o subfigura trabajamos, e.g:
+d<-datos |>
+  ggplot(aes(x = atractivo_jangueo)) +
+  geom_bar(fill = "red3", color = "black") +
+  labs(title = "(d) Distribución de atractivo para jangueo en Río Piedras",
+       x = "Percepción de atractividad para jangueo",
+       y = "Frecuencia") +
+  theme_minimal()
