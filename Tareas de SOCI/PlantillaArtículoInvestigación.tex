@@ -1,0 +1,193 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{blindtext}
+\usepackage{graphicx, amsmath, booktabs, tabularx, longtable, tabularray, lscape, varioref, microtype, multicol,csquotes}
+\usepackage{subcaption}
+\usepackage{hhline}
+\usepackage[table,svgnames]{xcolor}
+\usepackage[spanish,es-tabla]{babel} % Configuración de idioma
+
+% Nuevos colores personalizados
+\definecolor{UPRRed}{HTML}{E70033}
+\definecolor{UPRGray}{HTML}{BABCBE}
+\definecolor{UPRBlack}{HTML}{261C02}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.5}
+\definecolor{carmín}{RGB}{153, 0, 0}
+\usepackage{setspace}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=darkblue,  % color de enlaces internos
+  citecolor=carmín,  % color de enlaces a la bibliografía
+  filecolor=UPRBlack,  % color de enlaces a archivos
+  urlcolor= carmín    % color de enlaces externos
+}
+
+% Para bibliografía con BibLaTeX
+\usepackage[backend=biber,style=apa,natbib=true,language=spanish]{biblatex}
+\addbibresource{Referencias.bib}
+
+% Para fuentes similares a CUP
+%\usepackage[scaled=0.99,osf]{fbb}
+%\usepackage[semibold]{sourcesanspro}
+%\usepackage{sansmath}
+\usepackage[italic,eulergreek]{mathastext}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage[osf,scaled=1.004]{newtxtext}
+\let\oldvert\vert
+\let\vert\relax
+\usepackage{newtxmath}
+\let\vert\oldvert
+
+\newmdenv[backgroundcolor=lightgray, linewidth=0pt, innerleftmargin=0pt, innerrightmargin=0pt, innertopmargin=9pt, innerbottommargin=10pt]{abstractbox}
+\newcommand{\keywords}[1]{%
+  \ifx#1\empty\else
+    \vspace{0.5em}
+    \noindent\textbf{Palabras clave:} #1
+    \par
+  \fi
+}
+
+% Comandos personalizados para título y autor
+\newcommand{\customtitle}[1]{\title{\textsf{\textbf{#1}}}}
+\newcommand{\customauthor}[3]{\author{#1\thanks{#3}} \date{\textit{#2}}}
+\renewcommand{\thesection}{\Roman{section}} 
+\renewcommand{\thesubsection}{\thesection. \Alph{subsection}}
+\usepackage{fix-cm}
+% Inicio del documento
+\begin{document}
+% Configuración de fuente a Times New Roman o similar
+
+\renewcommand{\rmdefault}{ptm}
+\fontsize{12}{15}\selectfont
+
+% Comando personalizado para tamaño de fuente en notas al pie
+\let\oldfootnote\footnote
+\renewcommand{\footnote}[1]{%
+  {\footnotesize\oldfootnote{#1}}
+}
+\singlespacing
+\customtitle{Hacia variedades conectadas de capitalismo: Explorando la complejidad de redes como agenda post-pandemia}
+\customauthor
+    {Rashid Marcano Rivera} % Nombre del autor
+    {Departamento de Sociología y Antropología, Universidad de Puerto Rico, Recinto de Río Piedras} % Afiliación
+    {Correo electrónico: \href{mailto:rmarcano@upr.edu}{rmarcano@upr.edu}} % Nota al pie del autor
+
+\maketitle
+
+\begin{abstractbox}
+\begin{abstract}
+\small
+La globalización sugiere la convergencia de los mercados nacionales en un único sistema capitalista. Sin embargo, la evidencia destaca la singularidad de diferentes capitalismos basados en la relación entre empresas, industrias y gobiernos. ¿Estas variedades permanecen distintas o convergen? Conecto conceptualmente las descripciones ricas de la literatura de Variedades de Capitalismo con el análisis de redes sociales, proponiendo una nueva agenda de investigación para explorar la amplitud y complejidad de las economías contemporáneas, examinando sus transformaciones estructurales. Una sección empírica aplica este enfoque a 76 redes de accionistas a nivel de país desde 2007 a 2019, utilizando la densidad de redes, encontrando divergencia condicional y mayor variabilidad en los resultados conductuales más allá de las categorías occidental-céntricas.
+\end{abstract}\end{abstractbox}
+
+\keywords{variedades de capitalismo, redes de propiedad, análisis de redes sociales}
+\medskip
+\onehalfspacing
+% Texto principal
+\section{Introducción}
+Aquí comienza el texto principal del artículo.  La globalización ha transformado la manera en que las economías nacionales interactúan, planteando preguntas fundamentales sobre la convergencia de los sistemas capitalistas. Este artículo explora cómo los sistemas de capitalismo, representados a través de las redes de propiedad de accionistas, han evolucionado entre 2007 y 2019. El objetivo es ofrecer una comprensión más profunda de las dinámicas estructurales en economías contemporáneas, conectando descripciones conceptuales con métodos empíricos basados en análisis de redes. Este enfoque aborda la brecha entre las perspectivas tradicionales de variedades de capitalismo y las herramientas analíticas necesarias para observar sus transformaciones.
+
+\blindtext[2]
+
+\section{Marco Teórico}
+La teoría de las variedades de capitalismo (VoC) se ha establecido como una de las principales aproximaciones en la economía política comparada, ofreciendo un marco para entender cómo las instituciones moldean los sistemas económicos nacionales. Según Hall y Soskice (\citeyear{hall2001introduction}), los sistemas capitalistas pueden clasificarse en economías liberales de mercado (LME) y economías coordinadas de mercado (CME), basándose en la manera en que las empresas resuelven problemas clave como la gobernanza corporativa, las relaciones laborales y la formación de capital humano. 
+
+\blindtext[2]
+
+\subsection{Literatura A}
+
+Una contribución importante de este enfoque es el énfasis en las complementariedades institucionales, las cuales explican por qué ciertos arreglos económicos tienden a reforzarse mutuamente dentro de un sistema \citep{hall2001introduction}). Sin embargo, investigaciones más recientes han señalado la necesidad de adaptar este marco teórico para captar los procesos de cambio institucional en las economías contemporáneas. Por ejemplo, \citet{hall2009institutional} argumentan que las instituciones no son estáticas, sino que evolucionan a través de procesos graduales impulsados por actores políticos y económicos.
+
+Además, se ha destacado que las instituciones que conforman las variedades de capitalismo no operan de manera uniforme en todas las economías. Según Morales Arandes (\citeyear{morales2002}), los sistemas económicos en el Caribe presentan dinámicas particulares que no encajan completamente en los modelos tradicionales de VoC, lo que subraya la importancia de considerar factores culturales y regionales en el análisis. Esto refuerza la necesidad de enfoques más matizados que incluyan tanto las estructuras institucionales como las interacciones sociales.
+
+\blindtext
+
+La literatura temprana sobre VoC destaca las diferencias entre economías liberales de mercado (LME) y economías coordinadas de mercado (CME). Las LMEs, como Estados Unidos, privilegian mercados financieros flexibles y relaciones empresariales transaccionales, mientras que las CMEs, como Alemania, dependen de redes densas de relaciones intercorporativas. Estudios recientes han cuestionado esta dicotomía, proponiendo modelos híbridos y regionales.
+
+\blindtext
+
+\subsection{Literatura B}
+
+Por otro lado, el análisis de redes ha surgido como una herramienta poderosa para explorar las relaciones de propiedad en los sistemas económicos, proporcionando una perspectiva empírica complementaria al enfoque teórico de VoC. Este artículo se basa en estos desarrollos conceptuales para proponer una agenda de investigación que combine el análisis de redes con la literatura sobre VoC, avanzando en la comprensión de las dinámicas estructurales de las economías contemporáneas.
+
+\blindtext
+
+\subsection{Teoría}
+
+\blindtext[2]
+
+\section{Metodología}
+El estudio utiliza un enfoque basado en el análisis de redes sociales (SNA, por sus siglas en inglés) para examinar las dinámicas estructurales de los sistemas capitalistas en 76 economías nacionales entre 2007 y 2019. Este enfoque combina datos empíricos de redes de accionistas con herramientas métricas para cuantificar la densidad, modularidad y assortatividad de las redes de propiedad. El objetivo es observar cómo los sistemas de coordinación empresarial varían entre economías liberales de mercado (LME), economías coordinadas de mercado (CME), economías jerárquicas de mercado (HME) y otras tipologías emergentes.
+
+\blindtext
+
+
+\subsection{Recolección de datos}
+Los datos se obtuvieron de bases globales como Orbis y Bloomberg, que ofrecen información detallada sobre relaciones de propiedad y estructuras de accionistas. Los criterios de inclusión abarcaron empresas con más del 50\% de capital privado, mientras que las estatales se analizaron por separado para evaluar su influencia en economías jerárquicas. El proceso de limpieza eliminó duplicados y normalizó nombres para garantizar la consistencia.
+\blindtext
+
+
+\subsection{Modelos y herramientas utilizadas}
+El análisis se llevó a cabo utilizando \texttt{R} y \texttt{Gephi} para calcular métricas de red, como densidad (proporción de relaciones existentes sobre el total posible), modularidad (calidad de agrupamiento en clusters) y asortatividad (grado en que los nodos con características similares se conectan entre sí). Estas métricas permitieron evaluar patrones de convergencia y divergencia en la estructura de coordinación de las redes económicas.
+\blindtext
+
+\section{Resultados}
+Los resultados revelan patrones distintivos en la evolución de la densidad de redes de propiedad entre diferentes variedades de capitalismo. En economías liberales de mercado (LME), como Estados Unidos y Reino Unido, se observó un descenso rápido en la densidad, lo que refleja su dependencia de relaciones transaccionales y sistemas de gobernanza orientados al mercado. Por el contrario, las economías coordinadas de mercado (CME), como Alemania y Suecia, mantuvieron niveles de densidad más altos, demostrando la resiliencia de sus estructuras estratégicas de coordinación interempresarial.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{l | r}
+\hline
+\hline
+Variedad de Capitalismo (VOC) & Cambio promedio \% 2010-2022 \\
+\hline
+Economías de Mercado Liberal (LME)      & -48.3215\% \\
+Economías de Mercado Jerárquico (HME)   & -50.5678\% \\
+Economías de Mercado Coordinado (CME)  & -32.1459\% \\
+Economías de Mercado Mixto (MME)        &  +15.2347\% \\
+Economías de Mercado Estatal (SME)      &  +89.4562\% \\
+\hline
+\hline
+\end{tabular}
+\caption{Cambio promedio porcentual en la densidad de redes entre 2010 y 2022 según VOC}
+\label{tab:Densities}
+\end{table}
+
+En economías jerárquicas de mercado (HME), como Brasil y México, la densidad inicial fue notablemente alta, pero experimentó la caída más pronunciada entre 2007 y 2019. Esta reducción refleja vulnerabilidades particulares frente a crisis económicas globales. Por otro lado, las economías mixtas (MME) y pequeñas economías de mercado (SME) mostraron incrementos modestos en densidad, destacándose las SME por duplicar sus valores iniciales, lo que puede estar relacionado con la intervención estatal y el papel estabilizador de las empresas públicas.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.75\textwidth]{Densities.png}
+\caption{Densidad de redes según tipo de VOC. Valores medianos dentro de cada grupo durante el período comprendido entre el inicio de la crisis financiera global (GFC) y la recuperación.}
+\label{fig:Densities}
+\end{figure}
+
+\blindtext
+
+La Figura~\ref{fig:Densities} complementa los datos resumidos en la Tabla~\ref{tab:Densities}, mostrando la evolución temporal de la densidad de redes para cada tipo de variedad de capitalismo (VOC). Mientras que la tabla presenta cambios porcentuales promedio entre 2010 y 2022, el gráfico detalla cómo estas densidades fluctúan a lo largo de años clave como 2007, 2010, 2015 y 2019. Por ejemplo, las economías de mercado jerárquico (EMJ) experimentaron una caída pronunciada después de alcanzar un máximo en 2010, un patrón que se refleja en los datos tabulados.
+
+\section{Discusión}
+Los hallazgos destacan tanto patrones previstos como inesperados en la evolución de las redes de propiedad. La rápida caída en densidad observada en las LMEs resalta la fragilidad de sus sistemas durante periodos de inestabilidad económica, mientras que la resiliencia de las CMEs subraya la importancia de las relaciones estratégicas interempresariales. Sin embargo, el comportamiento único de las HMEs, con una densidad inicial alta y un descenso abrupto, plantea preguntas sobre la adaptabilidad de estos sistemas a choques externos.
+
+La divergencia observada entre HMEs y CMEs, así como el agrupamiento de LMEs, MMEs y SMEs, refuerza los argumentos sobre la resiliencia institucional y la dependencia de trayectorias históricas frente a presiones globales \citep{hall2001introduction, hall2009institutional}. Al mismo tiempo, los incrementos en densidad de las SMEs sugieren que la intervención estatal puede mitigar parcialmente los efectos de la volatilidad del mercado.
+
+\blindtext
+
+\section{Conclusiones}
+Este estudio resalta el valor del análisis de redes para profundizar en la comprensión de las variedades de capitalismo (VoC). Medidas como la densidad, modularidad y asortatividad ofrecen una perspectiva estructural que complementa enfoques cualitativos tradicionales, permitiendo evaluar la resiliencia y fragilidad de los sistemas capitalistas en contextos de crisis económica.
+
+Los hallazgos muestran cómo los sistemas de capitalismo responden de manera diversa a presiones globales y choques económicos. Si bien se observa cierta convergencia en patrones estructurales debido a la globalización, las dinámicas internas de las economías preservan diferencias clave entre las tipologías de VoC. Además, estas estructuras relacionales pueden vincularse a resultados socioeconómicos relevantes, como la desigualdad, el crecimiento y la efectividad regulatoria, ampliando el alcance de modelos de crecimiento económico.
+
+Futuras investigaciones deberían incorporar métricas de red adicionales, como modularidad y asortatividad, y extender el análisis a regiones y periodos históricamente subrepresentados, incluyendo los efectos de la crisis del COVID-19. Asimismo, se recomienda explorar los vínculos entre gobernanza corporativa, demanda agregada y distribución del ingreso para integrar aún más los enfoques de VoC y modelos de crecimiento. Este enfoque integrado puede proporcionar un marco analítico más robusto para entender cómo los sistemas capitalistas evolucionan frente a las presiones contemporáneas.
+
+%\bibliographystyle{apacite}
+\printbibliography
+\newpage
+\section{Apéndice}
+
+
+\textit{Sección opcional, sólo si fuere necesario}.
+
+\end{document}
